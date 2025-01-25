@@ -100,7 +100,7 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
   }
 
   function isFormValid() {
-    return Object.keys(formData)
+    return Object.keys(formData).filter((key) => key !== "notes")
       .map((key) => formData[key].trim() !== "")
       .every((item) => item);
   }

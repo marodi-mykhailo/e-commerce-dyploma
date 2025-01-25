@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import bannerOne from "../../assets/banner-1.webp";
-import bannerTwo from "../../assets/banner-2.webp";
-import bannerThree from "../../assets/banner-3.webp";
+import bannerOne from "@/assets/banner-1.webp";
+import bannerTwo from "@/assets/banner-2.webp";
+import bannerThree from "@/assets/banner-3.webp";
 import {
   Airplay,
   BabyIcon,
@@ -131,6 +131,7 @@ function ShoppingHome() {
                 className={`${
                   index === currentSlide ? "opacity-100" : "opacity-0"
                 } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
+                alt={'banner'}
               />
             ))
           : null}
@@ -173,6 +174,7 @@ function ShoppingHome() {
                   handleNavigateToListingPage(categoryItem, "category")
                 }
                 className="cursor-pointer hover:shadow-lg transition-shadow"
+                key={categoryItem.id}
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
                   <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
@@ -192,6 +194,7 @@ function ShoppingHome() {
               <Card
                 onClick={() => handleNavigateToListingPage(brandItem, "brand")}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
+                key={brandItem.id}
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
                   <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
@@ -215,6 +218,7 @@ function ShoppingHome() {
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                     handleAddtoCart={handleAddtoCart}
+                    key={productItem.id}
                   />
                 ))
               : null}
