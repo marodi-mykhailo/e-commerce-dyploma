@@ -57,7 +57,6 @@ function AdminProducts() {
           console.log(data, "edit");
 
           if (data?.payload?.success) {
-            dispatch(fetchAllProducts());
             setFormData(initialFormData);
             setOpenCreateProductsDialog(false);
             setCurrentEditedId(null);
@@ -113,6 +112,7 @@ function AdminProducts() {
         {productList && productList.length > 0
           ? productList.map((productItem) => (
               <AdminProductTile
+                key={productItem._id}
                 setFormData={setFormData}
                 setOpenCreateProductsDialog={setOpenCreateProductsDialog}
                 setCurrentEditedId={setCurrentEditedId}
